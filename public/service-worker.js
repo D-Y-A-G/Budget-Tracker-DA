@@ -1,6 +1,3 @@
-const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = "data-cache-v1";
-
 const FILES_TO_CACHE = [
   "/", //change this to correct files //
   "/index.html",
@@ -13,6 +10,9 @@ const FILES_TO_CACHE = [
   "https://fonts.googleapis.com/css?family=Istok+Web|Montserrat:800&display=swap",
   "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css",
 ];
+
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
 
 // install
 self.addEventListener("install", function (evt) {
