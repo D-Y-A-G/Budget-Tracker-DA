@@ -1,7 +1,7 @@
 let transactions = [];
 let myChart;
 
-fetch("/api/transaction")
+fetch("/models/transaction.js") ///api/transaction
   .then((response) => {
     return response.json();
   })
