@@ -49,10 +49,10 @@ function saveRecord(record) {
 function checkDatabase() {
   console.log("check db invoked");
 
-  // Open a transaction on your BudgetStore db
+  // Open a transaction on your BudgetStore db //
   let transaction = db.transaction(["budget"], "readwrite");
 
-  // access your BudgetStore object
+  // access your BudgetStore object//
   const store = transaction.objectStore("budget");
 
   // Get all records from store and set to a variable
