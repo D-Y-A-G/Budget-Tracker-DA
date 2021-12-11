@@ -94,7 +94,10 @@ To contribute do a pull request and app is open for further development or to re
 
 ## **🚧Tests**
 
-## [Demo App Here!](https://budget-tracker-da.herokuapp.com/)
+# [Demo App Here!](https://budget-tracker-da.herokuapp.com/)
+
+App Images:
+![image](https://user-images.githubusercontent.com/84104912/145691584-6d1e97a9-6cf7-4183-9b54-c0b1af1949ae.png)
 
 ## **💬Questions**
 
