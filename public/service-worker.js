@@ -1,5 +1,8 @@
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
+
 const FILES_TO_CACHE = [
-  "/", //change this to correct files //
+  "/",
   "/index.html",
   "/index.js",
   "/indexedDb.js",
@@ -9,25 +12,25 @@ const FILES_TO_CACHE = [
   "/icons/icon-512x512.png",
   "https://fonts.googleapis.com/css?family=Istok+Web|Montserrat:800&display=swap",
   "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css",
+  "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+  "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
+  "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0",
 ];
-
-const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = "data-cache-v1";
 
 // install
 self.addEventListener("install", function (evt) {
-  // pre cache all static assets
   evt.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
 
-  // tell the browser to activate this service worker immediately once it
-  // has finished installing
   self.skipWaiting();
 });
 
 // activate
 self.addEventListener("activate", function (evt) {
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+  );
   evt.waitUntil(
     caches.keys().then((keyList) => {
       return Promise.all(
@@ -55,9 +58,8 @@ self.addEventListener("fetch", function (evt) {
             .then((response) => {
               // If the response was good, clone it and store it in the cache.
               if (response.status === 200) {
-                cache.put(evt.request.url, response.clone());
+                cache.add(evt.request.url, response.clone());
               }
-
               return response;
             })
             .catch((err) => {
